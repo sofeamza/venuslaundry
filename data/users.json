@@ -1,0 +1,11 @@
+[
+  {
+    "id": "e0b9e7e1-164e-42df-892a-7b4eb269dbb6",
+    "name": "Admin User",
+    "email": "admin@venuslaundry.com",
+    "hashedPassword": "admin123",
+    "role": "admin",
+    "createdAt": "2025-04-19T08:48:05.388Z",
+    "updatedAt": "2025-04-19T08:48:05.388Z"
+  }
+]
