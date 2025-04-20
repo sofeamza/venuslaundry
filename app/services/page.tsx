@@ -1,121 +1,172 @@
-import Link from "next/link"
 import Image from "next/image"
-import { redirect } from "next/navigation"
-import { getServerSession } from "next-auth/next"
-import { authOptions } from "@/lib/auth"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
+import { Award, Clock, Star, HeartHandshake } from "lucide-react"
 
-export default async function DashboardServicesPage() {
-  const session = await getServerSession(authOptions)
-
-  // Service data
-  const services = [
-    {
-      id: "bulk-bliss",
-      name: "Bulk Bliss",
-      description: "Efficient large-scale laundry services ensuring your linens look clean and pristine!",
-      image: "/bulk-elegance.jpg",
-      status: "Active",
-      nextService: "May 25, 2023",
-    },
-    {
-      id: "linen-luxury",
-      name: "Linen Luxury",
-      description: "High-quality linen rental and supply, making every guest's experience exceptional.",
-      image: "/linen-luxury.jpg",
-      status: "Active",
-      nextService: "May 28, 2023",
-    },
-    {
-      id: "furnishing-finesse",
-      name: "Furnishing Finesse",
-      description: "We clean and maintain soft furnishings, adding comfort and class to your space.",
-      image: "/soft-splendor.jpg",
-      status: "Pending",
-      nextService: "Not scheduled",
-    },
-  ]
-
+export default function ServicesPage() {
   return (
-    <main className="min-h-screen py-16">
-      <div className="container mx-auto px-4">
-        <div className="flex justify-between items-center mb-8">
-          <h1 className="text-3xl font-bold text-[#0a3049]">My Services</h1>
-          <Button className="bg-[#5bc0de] hover:bg-[#4ab0ce] text-white">Request New Service</Button>
-        </div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold text-[#0a3049] mb-4">Active Services</h2>
-            <p className="text-3xl font-bold text-[#5bc0de]">2</p>
-            <p className="text-gray-600 mt-2">Current active service contracts</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold text-[#0a3049] mb-4">Pending Services</h2>
-            <p className="text-3xl font-bold text-[#5bc0de]">1</p>
-            <p className="text-gray-600 mt-2">Services awaiting confirmation</p>
-          </div>
-
-          <div className="bg-white p-6 rounded-lg shadow-md">
-            <h2 className="text-xl font-bold text-[#0a3049] mb-4">Upcoming Services</h2>
-            <p className="text-3xl font-bold text-[#5bc0de]">2</p>
-            <p className="text-gray-600 mt-2">Scheduled in the next 7 days</p>
+    <main className="min-h-screen">
+      {/* Hero Section */}
+      <section className="bg-[#e6f7fc] py-16 md:py-24">
+        <div className="container mx-auto px-4">
+          <div className="max-w-3xl mx-auto text-center">
+            <h1 className="text-4xl md:text-5xl font-bold text-[#0a3049] mb-6">Our Services</h1>
+            <p className="text-lg text-[#0a3049] mb-8">
+              Comprehensive laundry solutions tailored to meet the unique needs of your business or residence.
+            </p>
           </div>
         </div>
+      </section>
 
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-bold text-[#0a3049] mb-6">My Service Subscriptions</h2>
+      {/* Pure Elegance Section */}
+      <section className="py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl font-bold text-[#0a3049]">Pure Elegance</h2>
+            <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
+              Our comprehensive range of services is designed to meet all your laundry needs with exceptional quality
+              and efficiency.
+            </p>
+          </div>
 
-          <div className="grid grid-cols-1 gap-6">
-            {services.map((service) => (
-              <div key={service.id} className="border rounded-lg overflow-hidden">
-                <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                  <div className="md:col-span-1 h-48 md:h-full overflow-hidden">
-                    <Image
-                      src={service.image || "/placeholder.svg"}
-                      alt={service.name}
-                      width={300}
-                      height={200}
-                      className="w-full h-full object-cover"
-                    />
-                  </div>
-                  <div className="md:col-span-3 p-6">
-                    <div className="flex flex-col md:flex-row justify-between mb-4">
-                      <h3 className="text-xl font-bold text-[#0a3049]">{service.name}</h3>
-                      <div className="mt-2 md:mt-0">
-                        <span
-                          className={`px-3 py-1 rounded-full text-sm ${
-                            service.status === "Active"
-                              ? "bg-green-100 text-green-800"
-                              : "bg-yellow-100 text-yellow-800"
-                          }`}
-                        >
-                          {service.status}
-                        </span>
-                      </div>
-                    </div>
-                    <p className="text-gray-700 mb-4">{service.description}</p>
-                    <div className="flex flex-col md:flex-row justify-between items-start md:items-center">
-                      <div>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Next Service:</span> {service.nextService}
-                        </p>
-                      </div>
-                      <div className="mt-4 md:mt-0">
-                        <Link href={`/dashboard/services/${service.id}`}>
-                          <Button className="bg-[#e6f7fc] hover:bg-[#d6f0f8] text-[#0a3049] mr-2">View Details</Button>
-                        </Link>
-                        <Button className="bg-[#5bc0de] hover:bg-[#4ab0ce] text-white">Schedule Service</Button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Service Card 1 */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <div className="h-48 overflow-hidden">
+                <Image
+                  src="/Bulk-Elegance.png"
+                  alt="Bulk Bliss"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
               </div>
-            ))}
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#0a3049] mb-2">Bulk Bliss</h3>
+                <p className="text-gray-700 mb-4">
+                  We handle mountains of clothes with ease! Our Bulk Bliss service is perfect for businesses with lots
+                  to wash. Sheets, towels, uniforms—we make them all sparkle. Plus, we're fast and gentle on fabrics.
+                  Trust us to keep your garments looking their best.
+                </p>
+              </div>
+            </div>
+
+            {/* Service Card 2 */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <div className="h-48 overflow-hidden">
+                <Image
+                  src="/Linen-Luxury.png"
+                  alt="Linen Luxury"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#0a3049] mb-2">Linen Luxury</h3>
+                <p className="text-gray-700 mb-4">
+                  Step into a world where your linens always impress. We offer top-notch rental and supply services. We
+                  provide fresh, high-quality sheets and towels that make guests feel pampered. Perfect for hotels and
+                  spas that value elegance and comfort.
+                </p>
+              </div>
+            </div>
+
+            {/* Service Card 3 */}
+            <div className="bg-white rounded-lg overflow-hidden shadow-md">
+              <div className="h-48 overflow-hidden">
+                <Image
+                  src="/Soft-Splendor.png"
+                  alt="Furnishing Finesse"
+                  width={400}
+                  height={300}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="p-6">
+                <h3 className="text-xl font-bold text-[#0a3049] mb-2">Furnishing Finesse</h3>
+                <p className="text-gray-700 mb-4">
+                  Furnishing Finesse brings cozy to your doorstep! Soft, stylish cushions and drapes for any space.
+                  They're perfect for lounges and event halls. From plush to chic, we supply the comfort and class your
+                  business deserves. Let's make every corner inviting!
+                </p>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
+      </section>
+
+      {/* Why Choose Us Section */}
+      <section className="bg-slate-100 py-16">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-[#0a3049]">Why Choose Us?</h2>
+            <p className="text-gray-700 mt-4 max-w-2xl mx-auto">
+              We're not just a laundry service; we're a promise of excellence.
+            </p>
+            <p className="text-gray-700 mt-4 max-w-2xl mx-auto italic">
+              ~ Our dedication to detail and superior quality sets us apart.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-[#5bc0de] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Award className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a3049] mb-2">Proven Expertise</h3>
+              <p className="text-gray-700">
+                Years of experience and specialized knowledge in fabric care and cleaning techniques.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-[#5bc0de] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Clock className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a3049] mb-2">Speedy Service</h3>
+              <p className="text-gray-700">
+                Quick turnaround times without compromising on quality or attention to detail.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-[#5bc0de] rounded-full flex items-center justify-center mx-auto mb-4">
+                <Star className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a3049] mb-2">Top-Rated Care</h3>
+              <p className="text-gray-700">
+                Award-winning service with a commitment to excellence in every aspect of our work.
+              </p>
+            </div>
+
+            <div className="bg-white p-8 rounded-lg shadow-md text-center">
+              <div className="w-16 h-16 bg-[#5bc0de] rounded-full flex items-center justify-center mx-auto mb-4">
+                <HeartHandshake className="h-8 w-8 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-[#0a3049] mb-2">Genuine Support</h3>
+              <p className="text-gray-700">
+                Dedicated customer service team ready to assist with any questions or concerns.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Say Hey! Call to Action */}
+      <section className="bg-[#5bc0de] text-white py-16">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold mb-6">Say Hey!</h2>
+          <p className="text-lg mb-8 max-w-2xl mx-auto">
+            Ready to dazzle? Click here and let's make laundry magic together!
+          </p>
+          <Link href="/contact">
+            <Button className="bg-white hover:bg-gray-100 text-[#0a3049] rounded-full px-8 py-6 text-lg">
+              Get in Touch
+            </Button>
+          </Link>
+        </div>
+      </section>
     </main>
   )
 }

@@ -22,13 +22,13 @@ export function SiteHeader() {
               Services <ChevronDown className="h-4 w-4" />
             </button>
             <div className="absolute hidden group-hover:block bg-white shadow-lg rounded-md p-2 min-w-[150px]">
-              <Link href="/services/bulk-bliss" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
+              <Link href="/services" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
                 Bulk Bliss
               </Link>
-              <Link href="/services/linen-luxury" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
+              <Link href="/services" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
                 Linen Luxury
               </Link>
-              <Link href="/services/furnishing-finesse" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
+              <Link href="/services" className="block px-4 py-2 hover:bg-slate-100 text-[#0a3049]">
                 Furnishing Finesse
               </Link>
             </div>
