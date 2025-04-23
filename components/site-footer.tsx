@@ -57,17 +57,17 @@ export function SiteFooter() {
             <h3 className="text-lg font-bold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <Link href="/services/washing" className="text-gray-600 hover:text-[#5bc0de]">
+                <Link href="/services" className="text-gray-600 hover:text-[#5bc0de]">
                   Bulk Bliss
                 </Link>
               </li>
               <li>
-                <Link href="/services/linen-supply" className="text-gray-600 hover:text-[#5bc0de]">
+                <Link href="/services" className="text-gray-600 hover:text-[#5bc0de]">
                   Linen Luxury
                 </Link>
               </li>
               <li>
-                <Link href="/services/soft-furnishing" className="text-gray-600 hover:text-[#5bc0de]">
+                <Link href="/services/" className="text-gray-600 hover:text-[#5bc0de]">
                   Furnishing Finesse
                 </Link>
               </li>
