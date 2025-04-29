@@ -2,6 +2,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Award, Clock, Star, HeartHandshake } from "lucide-react"
+import { ServiceRequestButton } from "@/components/service-request-button"
 
 export default function ServicesPage() {
   return (
@@ -48,6 +49,11 @@ export default function ServicesPage() {
                   to wash. Sheets, towels, uniforms—we make them all sparkle. Plus, we're fast and gentle on fabrics.
                   Trust us to keep your garments looking their best.
                 </p>
+                <ServiceRequestButton
+                  serviceType="bulk-elegance"
+                  buttonText="Order"
+                  className="w-full bg-[#e6f7fc] hover:bg-[#d6f0f8] text-[#0a3049] rounded-full"
+                />
               </div>
             </div>
 
@@ -69,6 +75,11 @@ export default function ServicesPage() {
                   provide fresh, high-quality sheets and towels that make guests feel pampered. Perfect for hotels and
                   spas that value elegance and comfort.
                 </p>
+                <ServiceRequestButton
+                  serviceType="linen-luxury"
+                  buttonText="Hire"
+                  className="w-full bg-[#5bc0de] hover:bg-[#4ab0ce] text-white rounded-full"
+                />
               </div>
             </div>
 
@@ -90,6 +101,11 @@ export default function ServicesPage() {
                   They're perfect for lounges and event halls. From plush to chic, we supply the comfort and class your
                   business deserves. Let's make every corner inviting!
                 </p>
+                <ServiceRequestButton
+                  serviceType="soft-splendor"
+                  buttonText="Serve"
+                  className="w-full bg-[#e6f7fc] hover:bg-[#d6f0f8] text-[#0a3049] rounded-full"
+                />
               </div>
             </div>
           </div>
